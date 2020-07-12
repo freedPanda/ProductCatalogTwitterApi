@@ -119,7 +119,7 @@ class ClientRoutesTestCases(TestCase):
         """This route sends emails. If the confirmation page is displayed then the email was sent."""
         with self.client as c:
             #NEED TO PROVIDE OWN EMAIL
-            data = {'email':'hjorth.chris@yahoo.com', 'firstname':'test fn', 'lastname':'test ln',
+            data = {'email':'enteryouremail@yourhost.com', 'firstname':'test fn', 'lastname':'test ln',
             'message':'test message'}
             resp = c.post(f'/products/{self.product1_id}', data=data, follow_redirects=True)
             html = resp.get_data(as_text=True)

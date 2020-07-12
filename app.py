@@ -164,30 +164,6 @@ def return_product_details(product_id):
     return render_template('product.html', product=product, form=form)
 
 
-"""@app.route('/purchase/<product_id>', methods=['POST'])
-def purchase_product(product_id):
-    This isnt actually purchasing a product. This is just notifying
-    the website owner that they want to purchase a product or have
-    questions about a product.
-    form = PurchaseForm()
-    if form.validate_on_submit():
-        email = []
-        email.append(form.email.data)
-        message = form.message.data
-        firstname = form.firstname.data
-        lastname = form.lastname.data
-        send_email(message)
-        result = send_confirmation(email)
-
-        if result == False:
-            flash('Error when sending confirmation email. Please check your inbox.','danger')
-            return redirect(f'/products/{product_id}')
-
-        request = Request(email=form.email.data, message=message, firstname=firstname, lastname=lastname, product=product_id)
-        db.session.add(request)
-        db.session.commit()
-    return redirect(f'/request/{product_id}')"""
-
 @app.route('/request/<product_id>')
 def confirm_request(product_id):
     product = Product.query.get(product_id)

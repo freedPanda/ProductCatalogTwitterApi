@@ -7,7 +7,7 @@ Product catalog website with twitter api requests
 2. Get twitter developer account
 3. save api key and secret api key from twitter to reallysecret.py. Names these variables
 TW_API_KEY AND TW_SECRET_API_KEY respectively.
-4. configure environment vars for api keys and db
+4. configure os environment vars for api keys and db. configure os environment vars for mail_settings and must use a google account unless you can modify it to work with another domain. With google you will need to allow 3rd party applications full access https://support.google.com/accounts/answer/3466521
 5. create a db and modify app.py to match db name.
 6. run secret.py from command line or ipython
 - secret.py has 4 functions. You must execute register(username,password) to get full access to secret.py. Then exectue login() and provide username password from before. create an admin which will be used to login online. Then run login() again select change route. In this part you are creating a secret string to add to the url to get to the admin portal online. Just create a string of characters DO NOT INCLUDE LOCAL HOST OR IPs OR PROTOCOLS just a random string of characters do not use /\#:
