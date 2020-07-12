@@ -2,4 +2,5 @@ venv/
 __pycache__/
 reallysecret.py
 secret.txt
+random.txt
 
