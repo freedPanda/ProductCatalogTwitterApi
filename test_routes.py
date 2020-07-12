@@ -5,9 +5,9 @@ from app import check_image
 from PIL import Image
 from flask_mail import Mail, Message
 
+from app import app
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','postgresql:///capstone1-test')
 
-from app import app
 
 db.create_all()
 
@@ -59,7 +59,7 @@ class ClientRoutesTestCases(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn('What is Rosemaling?', html)
+            self.assertIn('HISTORY', html)
 
     def test_product_route(self):
         with self.client as c:

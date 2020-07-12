@@ -149,7 +149,7 @@ class AdminRoutesTestCases(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn('What is Rosemaling?', html)
+            self.assertIn('HISTORY', html)
 
     def test_admin_session_on_sales_route_logged_in(self):
         with self.client as c:
@@ -167,7 +167,7 @@ class AdminRoutesTestCases(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn('What is Rosemaling?', html)
+            self.assertIn('HISTORY', html)
 
     def test_admin_delete_request_route_logged_in(self):
         with self.client as c:
@@ -187,7 +187,7 @@ class AdminRoutesTestCases(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn('What is Rosemaling?', html)
+            self.assertIn('HISTORY', html)
 
     def test_admin_sold_request_route_logged_in(self):
         with self.client as c:
@@ -221,7 +221,7 @@ class AdminRoutesTestCases(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn(f'What is Rosemaling?', html)
+            self.assertIn(f'HISTORY', html)
 
     def test_admin_delete_product_route_logged_in(self):
         with self.client as c:
@@ -254,7 +254,7 @@ class AdminRoutesTestCases(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn(f'What is Rosemaling?', html)
+            self.assertIn(f'HISTORY', html)
 
     def test_admin_view_products_route_logged_in(self):
         with self.client as c:
@@ -279,7 +279,7 @@ class AdminRoutesTestCases(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn(f'What is Rosemaling?', html)
+            self.assertIn(f'HISTORY', html)
 
     def test_admin_add_product_route_logged_in(self):
         with self.client as c:
