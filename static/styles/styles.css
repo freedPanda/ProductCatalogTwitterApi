@@ -1,0 +1,52 @@
+.nav-link{
+    font-family: Helvetica;
+}
+label{
+    color: maroon;
+}
+.shadow{
+    box-shadow: 8px 8px 10px 2px black;
+
+}
+input{
+    box-shadow: 4px 4px 10px 2px skyblue;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url("/static/images/gnome_grass.jpeg");
+  
+    /* Add the blur effect */
+    /*filter: blur(8px);
+    -webkit-filter: blur(8px);*/
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .bg-image2 {
+    /* The image used */
+    background-image: url("/static/images/gnome_grass.jpeg");
+  
+    /* Add the blur effect */
+    /*filter: blur(8px);
+    -webkit-filter: blur(8px);*/
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.danger {
+    color:red;
+}
+
+

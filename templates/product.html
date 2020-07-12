@@ -1,0 +1,139 @@
+{% extends 'index.html' %}
+<!-------DISPLAYS AN INDIVIDUAL ITEM THAT IS FOR SALE---
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ---->
+{% block alt_meta %}
+{% endblock %}
+{% block nav_list %}
+<li class="nav-item">
+  <a class="nav-link"  href="/index">Home</a>
+</li>
+<!--li class="nav-item">
+    <a class="nav-link"  href="/signup">Sign Up</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link"  href="/login">Login</a>
+</li-->
+<li class="nav-item active rounded" style='background-color: rgb(0,204,204); border-style: solid; border-color: maroon; border-width: 1px;'>
+  <a class="nav-link" style="color: yellow;" href="/products">Products <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/gallery">Gallery</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/events">Events</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/contact">Contact</a>
+  </li>
+{% endblock %}
+{% block background_image %}
+<body class='bg-image2'style="background-color:hsl(42, 46%, 93%); filter:contrast(120%);">
+{% endblock %}
+{% block content %}
+<div class='row '>
+  <div class='col'>
+    <a href='/products' class="badge ml-5 align-center" style='background-color: gold; color:maroon;'type="button" >
+      <h6>
+        Back to Products
+      </h6>
+      
+    </a>
+  </div>
+  <div class='col-5'>
+      
+  </div>
+  <div class='col-5'>
+
+  </div>
+</div>
+<div class='row'>
+  <div class='col'></div>
+  <div class='col-10 d-flex justify-content-center'>
+      <div class="card w-75" >
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+    <h6 class="alert alert-{{ category }}">{{ message }}</h6>
+    {% endfor %}
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active ">
+                    <div class='d-flex justify-content-center'>
+                      <img class="w-50 h-50 justify-content-center" src='data:image/png;base64,{{product.image}}' alt="First slide">
+                    </div>
+                  </div>
+                {% if product.image1 %}
+                <div class="carousel-item ">
+                    <div class='d-flex justify-content-center'>
+                      <img class="w-50 h-50" src='data:image/png;base64,{{product.image1}}' alt="Second slide">
+                    </div>
+                 </div>
+                {% endif %}
+                {% if product.image2 %}
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center">
+                      <img class="w-50 h-50" src='data:image/png;base64,{{product.image2}}' alt="Second slide">
+                    </div>
+                 </div>
+                {% endif %}
+                {% if product.image3 %}
+                <div class="carousel-item">
+                    <div class='d-flex justify-content-center'>
+                      <img class="w-50 h-50" src='data:image/png;base64,{{product.image3}}' alt="Second slide">
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+              {% if product.image1 or product.image2 or product.image3 %}
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon rounded-circle" aria-hidden="true" style="background-color: maroon;"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon rounded-circle" aria-hidden="true" style="background-color: maroon;"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              {% else %}
+              {% endif %}
+              
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{product.title}}<span class="badge badge-success ml-3">{{product.available}}</span>
+                
+              </h5>
+              <p class="card-text">{{product.description}}</p>
+              <p class='card-text'>${{product.price}}</p>
+              <p class='card-text'>id = {{product.id}}</p>
+              <div class="alert alert-danger"  role="alert">
+                  <h6 class="alert-headinadfsg">Make a request</h6>
+                  <p> Please send a request button if you'd like to purchase
+                      this piece of art or if you have any questions.
+                  </p>
+                 </div>
+                  <form action='/products/{{product.id}}'class='border border-info rounded p-3' method='POST' enctype="multipart/form-data">
+                      {{form.hidden_tag()}}
+                      
+                      {% for field in form %}
+                          {% if field.widget.input_type != 'hidden' %}
+                      <div class='form-group d-flex flex-column align-items-start'>
+                      <!--p class='d-flex m-1 p-2'-->
+                      
+                      {{field.label}}  
+                      {{field(class_='form-control')}}
+                         
+                      {% for error in field.errors %}
+                      {{error}}
+                      {% endfor %}
+                      
+                      </div>
+                          {% endif %}
+                      {% endfor %}
+                      <button type='submit' class='btn btn-primary btn-sm'>Send Request</button>
+                  </form>
+              
+          </div>
+        </div>
+  </div>
+  <div class='col'></div>
+</div>
+{% endblock %}

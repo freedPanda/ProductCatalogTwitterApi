@@ -1,0 +1,114 @@
+{% extends "index.html" %}
+<!-------THIS DISPLAYS ITEMS DISPLAYS PAST ARTWORK ----------------
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ ---->
+{% block nav_list %}
+<li class="nav-item">
+  <a class="nav-link"  href="/index">Home</a>
+</li>
+<!--li class="nav-item">
+    <a class="nav-link"  href="/signup">Sign Up</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link"  href="/login">Login</a>
+</li-->
+<li class="nav-item">
+    <a class="nav-link" href="/products">Products</a>
+  </li>
+<li class="nav-item active rounded" style='background-color: rgb(0,204,204); border-style: solid; border-color: maroon; border-width: 1px;'>
+  <a class="nav-link" style="color: yellow; " href="/gallery">Gallery <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/events">Events</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/contact">Contact</a>
+  </li>
+{% endblock %}
+{% block background_image %}
+<body class='bg-image2'style="background-color:hsl(42, 46%, 93%); filter:contrast(120%);">
+{% endblock %}
+{% block content %}
+<!-----------------------------------category form-------------------->
+<div class="alert alert-secondary m-0" role="alert">
+    <h5 class="alert-heading">Welcome to my gallery!</h5>
+    <p>These are pieces of art I have created over the years. 
+    </p>
+    </div>
+<div id='row-form' class="row">
+    <div class='col'></div>
+    <div class = 'col-12 justify-content-center'>
+      <button class="btn btn-sm " style='background-color: gold;'type="button" data-toggle="collapse" data-target="#sort_selection" aria-expanded="false" aria-controls="collapseExample">
+        Sort Products
+      </button>
+      <button id='clear-button' class='btn btn-sm' style='background-color: gold;'>View All</button>
+      <div class='collapse' id='sort_selection'style="background-color: white;">
+        <h6 class="pt-2">Choose Category(s)</h6>
+        <form id='category-form' class='ml-2'>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="thecheckbox" id="plate" value="plate">
+          <label class="form-check-label" for="plate">Plates</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="thecheckbox" id="bowl" value="bowl">
+          <label class="form-check-label" for="bowl">Bowls</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="thecheckbox" id="tray" value="tray">
+          <label class="form-check-label" for="tray">Trays</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="thecheckbox" id="sign" value="sign">
+          <label class="form-check-label" for="sign">Signs</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="thecheckbox" id="furniture" value="furniture">
+          <label class="form-check-label" for="furniture">Furniture</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="thecheckbox" id="basket" value="basket">
+          <label class="form-check-label" for="basket">Baskets</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="thecheckbox" id="misc" value="miscellaneous">
+          <label class="form-check-label" for="misc">Miscellaneous</label>
+        </div>
+        <button id='category-button'class='btn btn-secondary btn-sm mb-3'type="submit">Submit</button>
+        </form>
+        
+      </div>
+      <div id='none-found' style='display:none;' class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h3>No products found</h3>
+          <p class="lead">Currently, there are not any products in our inventory that match your selection(s)</p>
+        </div>
+      </div>
+    </div>
+    <div class = 'col'></div>
+  </div>  
+  <div class="row">
+    <div class='col'></div>
+    <div class='col-11'>
+     {% for row in rows %}   
+      <div class='row mt-3' data-row="row">
+        {% for product in row %}
+        <div id='{{product.id}}'class='col-3 d-flex justify-content-center m-0' data-category='{{product.category}}'>
+          <div class="card shadow" style="width:16rem; height:max-content; border: solid 4px white;">
+            <a href="/gallery/{{product.id}}"><img class="card-img-top" src='data:image/png;base64,{{product.image}}' alt="Card image cap"></a>
+            <div class="card-body">
+              <h5><b>{{product.title}}</b></h5>
+            </div>
+                <a href="/gallery/{{product.id}}" class="btn mb-2" name='button-product' style="color:white; background-color: maroon;">More Pics and Info</a>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    </div>
+    <div class='col'></div>
+  </div>
+{% endblock %}
+{% block optional_scripts %}
+<script src='/static/scripts/categories.js'></script>
+{% endblock %}

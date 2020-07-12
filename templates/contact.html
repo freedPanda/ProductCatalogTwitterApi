@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+<!-------DISPLAYS CONTACT INFORMATION --------------------------
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ---->
+{% block nav_list %}
+<li class="nav-item">
+  <a class="nav-link"  href="/index">Home</a>
+</li>
+<!--li class="nav-item">
+    <a class="nav-link"  href="/signup">Sign Up</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/login">Login</a>
+</li-->
+<li class="nav-item">
+    <a class="nav-link" href="/products">Products</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/gallery">Gallery</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/events">Events</a>
+  </li>
+<li class="nav-item active rounded" style='background-color: rgb(0,204,204); border-style: solid; border-color: maroon; border-width: 1px;'>
+    <a class="nav-link" style="color: gold;" href="/contact">Contact <span class="sr-only">(current)</span></a>
+  </li>
+{% endblock %}
+{% block background_image %}
+<body class='bg-image'style="background-color:hsl(42, 46%, 93%); filter:contrast(120%);">
+{% endblock %}
+{% block content %}
+<div class = 'row'>
+    <div class='col'></div>
+    <div class='col-10'>
+        <div class="jumbotron">
+            <h1 class="display-4">Contact Me</h1>
+            <p class="lead">Please email me, text me or call me if you have any questions.</p>
+            <hr class="my-4">
+            <p>If your question is about is in regards to a product. Please include the product id#. This information
+                can be found by clicking on the product. One more thing. There is a request button when viewing a product. That button
+                will automatically include the product id#.
+            </p>
+            <h4>FAQ</h4>
+            <p>
+                <b>What is the difference between the "Products Page" and the "Gallery Page"?</b> The products page displays
+                art work that are available for purchase. Including "blank" artwork which are items that have not been painted. The 
+                gallery page displays art work I have completed in the past.
+            </p>
+            <p>
+                <b>Why are some products unpainted?</b> These products are intentionally left unpainted, which means you can request
+                to have it painted and will get to customize certain aspects. Please, contact me directly about this product for information.
+                As a reminder, please include the product id#. The product id# can be found by clicking on the product. When
+                viewing that product, there is a request button at the bottom. Clicking the request button automatically include the id#.
+            </p>
+            <h4>My Products</h4>
+            <p class="lead">
+                This button will direct you to my available products.
+              <a class="btn btn-lg" href="/products" role="button" style="color:white; background-color: maroon;">Products</a>
+            </p>
+            <h4>Contact Info:</h4>
+            <p><b>Email:</b> </p>
+            <p><b>Phone:</b> </p>
+            <p><b>Location:</b> </p>
+            <p><b>Facebook:</b> </p>
+            <p><b>Twitter:</b> </p>
+          </div>
+    </div>
+    <div class='col'></div>
+</div>
+{% endblock %}

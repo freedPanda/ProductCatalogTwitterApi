@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+<!-------CONFIRMS THAT A PRODUCT REQUEST HAS BEEN SENT TO WEBSITE OWNER---
+  -------AND IT DISPLAYS THE REQUESTED PRODUCT------------------------
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ---->
+{% block nav_list %}
+<li class="nav-item">
+  <a class="nav-link"  href="/index">Home</a>
+</li>
+
+<li class="nav-item active rounded" style='background-color: rgb(0,204,204); border-style: solid; border-color: maroon; border-width: 1px;'>
+  <a class="nav-link" style="color: yellow;" href="/products">Products <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/gallery">Gallery</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/events">Events</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/contact">Contact</a>
+  </li>
+<!--li class="nav-item">
+  <a class="nav-link" href="/about">About</a>
+</li-->
+{% endblock %}
+{% block background_image %}
+<body class='bg-image'style="background-color:hsl(42, 46%, 93%); filter:contrast(120%);">
+{% endblock %}
+{% block content %}
+<div class = 'row'>
+    <div class='col'></div>
+    <div class='col-10'>
+        <div class="jumbotron">
+            <h3 class="display-4">Request Confirmed!</h3>
+            <p class="lead">I have recieved your request to purchase my art.
+                I have been notified of your request and I will respond to it
+                as soon as possible. Thank you for patience.
+            </p>
+            <hr class="my-2">
+            <p>Sorry I don't have a process in place to purchase products immediately.
+                For now, this is how I conduct purchases. I will respond to you so we
+                can discuss payment and shipping in regards to the following product:
+            </p>
+            <img class="d-block w-25" src='data:image/png;base64,{{product.image}}' alt="First slide">
+            <p class="lead">
+              <a class="btn btn-primary btn-sm" href="/products" role="button">View Products</a>
+            </p>
+          </div>
+    </div>
+    <div class='col'></div>
+</div>
+
+{% endblock %}
+

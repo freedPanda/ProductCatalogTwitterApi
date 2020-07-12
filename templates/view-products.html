@@ -1,0 +1,137 @@
+{% extends 'index.html' %}
+<!-------PLEASE READ THIS FIRST. THIS PAGE IS RETURNED TO ADMIN ONLY---
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  from here, admins can add, edit and delete products---->
+{% block nav_list %}
+<li class="nav-item">
+    <a class="nav-link"  href="/{{route}}/admin-logout">Logout</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/{{route}}/admin-home">Admin Home</a>
+</li>
+<li class="nav-item active" style="background-color: maroon;">
+  <a class="nav-link"  href="/{{route}}/view-products">Products</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/{{route}}/sales">Sales</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/{{route}}/view-requests">Requests</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/{{route}}/view-events">Events</a>
+  </li>
+{% endblock %}
+{% block background_image %}
+<body style="background-color:hsl(42, 46%, 93%); filter:contrast(120%);">
+{% endblock %}
+{% block content %}
+<!-----------------------------Page Title------------------------------------------------------------>
+<div class='row'>  
+    <div class='col'></div>
+    <div class='col-10'>
+      <h2>Admin</h2>
+      {% for category, message in get_flashed_messages(with_categories=True) %}
+        <h6 class="alert alert-{{ category }} alert-dismissible "role='alert'>{{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </h6>
+      {% endfor %}
+    </div>
+    <div class='col'></div>
+  </div>
+<!-------------------------------------------Add Product------------------------------------------------>
+<div class='row'>
+    <div class='col'></div>
+    <div class='col-10'>
+        <div class = 'container-fluid d-flex justify-content-start'>
+            <button id='add-button' class='btn btn-primary'>Show Add Product Form</button>
+        </div>
+        <div class = 'container-fluid m-2 d-flex justify-content-center' >
+          {% for field in form
+            if field.errors %}
+              <form id='add-form' class='border border-info rounded p-3' method='POST' enctype="multipart/form-data" style="background-color: white; color:maroon;">
+                <div class="alert alert-danger">Product not added to database.</div>
+            {% else %}    
+            <form id='add-form' class='border border-info rounded p-3' method='POST' enctype="multipart/form-data" style="display:none; background-color: white; color:maroon;"> 
+            {% endfor %}
+            {{form.hidden_tag()}}
+                {% for field in form 
+                        if field.widget.input_type != 'hidden' %}
+                 <div class='form-group d-flex flex-column align-items-start'>
+                    
+                        
+                        {{field.label}} 
+                        {% if field.id == 'available' %} 
+                            {{field}}
+                        {% else %}
+                            {{field(class_='form-control')}}
+                        {% endif %}
+                        
+                        {% for err in field.errors %}
+                           {{err}}
+                        {% endfor %}
+                        <!--{% for error in field.errors %}
+                        {{error}}
+                        {% endfor %}-->
+                    
+                </div>
+                    {% endfor %}
+                    <button type='submit'>Submit</button>
+                
+            </form>
+        </div>
+    </div>
+    <div class='col'></div>
+</div>
+
+
+ <!----------------------------Products Display------------------------------------> 
+  
+  <div class="row">
+    <div class='col'></div>
+    <div class='col-10'>
+        {% for row in rows %}   
+      <div class='row mt-1' data-row="row">
+        {% for product in row %}
+        <div id='{{product.id}}'class='col-3 d-flex justify-content-center m-0' data-category='{{product.category}}'>
+          <div class="card shadow" style="width:16rem; height:18rem; border: solid 4px white;">
+            <img class="card-img-top h-50" src='data:image/png;base64,{{product.image}}' alt="Card image cap">
+            <div class="card-body">
+              <p>{{product.title}}</p>
+              <hr class='my-1'>
+              <div class='row'>
+                <div class='col'>
+                  <p class="card-text" style='color:green;'><span class='badge badge-success mr-3'>
+                    {% if product.available == True %} 
+                    Available
+                    {% else %}
+                    Sold
+                    {% endif %}
+                    </span>${{product.price}}</p>
+                </div>
+              </div>
+              <div class='row'>
+                  <div class='col'>
+                    <a href="/{{route}}/{{product.id}}" class="badge badge-primary" name='button-product' >Edit</a>
+                 </div>
+                 <div class = 'col'>
+                    <a href='/{{route}}/delete/{{product.id}}' class='badge badge-danger' method='DELETE'>Delete</a>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+    <div class='col'></div>
+  </div>
+{% endblock %}
+{% block optional_scripts %}
+<script src='/static/scripts/somejs.js'></script>
+{% endblock %}

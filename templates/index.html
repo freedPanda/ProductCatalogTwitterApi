@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!---------------TWITTER SCRIPT-->
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+<!----------------TWITTER SCRIPT END----->
+  <meta charset="UTF-8">
+  <title>EvaHjorth Rosemaling</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <link rel='stylesheet' href="/static/styles/styles.css">
+  <!--FACEBOOK META-->
+  <meta property="og:url"                content="https://rosemalingsite.herokuapp.com/" />
+  <meta property="og:type"               content="website" />
+  <meta property="og:title"              content="Eva Hjorth Norwegian Rosemaling" />
+  <meta property="og:description"        content="Pieces of art painted in Norwegian Rosemaling Telemark Style" />
+  <meta property="og:image"              content="https://rosemalingsite.herokuapp.com/images/1" />
+  <!--TWITTER META-->
+  <meta name='twitter:card' content="summary_large_image">
+  <meta name='twitter:site' content='@TheRosemalist'>
+  <meta name='twitter:creator' content='@TheRosemalist'>
+  <meta name='twitter:title' content="Eva Hjorth Norwegian Rosemaling">
+  <meta name='twitter:description' content='Pieces of art painted in Norwegian Rosemaling Telemark Style'>
+  <meta name='twitter:image' content='https://rosemalingsite.herokuapp.com/images/1" '>
+ 
+</head>
+{% block background_image %}
+<body class='bg-image'style="background-color:hsl(42, 46%, 93%); filter:contrast(120%);">
+{% endblock %}
+ <!----------------FACEBOOK SCRIPT----------> 
+ <script>
+  window.fbAsyncInit = function() {
+
+    FB.init({
+      appId            : '711754029650905',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v7.0'
+    });
+  };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<!----------------FACEBOOK SCRIPT END --------------->
+  <div class='container-fluid ' >
+    <div class='row'>
+      <div class ='col m-0 p-0'>
+       </div>
+    <!------------------------------------EYE CATCHER WELCOME MAT ---------------------------------->
+    
+      <div class='col-12 m-0 p-0 rounded shadow'>
+        <!--div class="card m-0" style="width: 18rem;"-->
+        <div class='card m-0'>
+          
+          
+          <div class="card-body" style="font-family:Helvetica; background: hsl(42, 46%, 93%); color:maroon">
+            
+            <h4 class="card-text" >Welcome to an art display. </h4>
+            <p>Spend some time learning about art. Check out the products tab
+              to see whats for sale or the gallery to see my past projects.
+            </p>
+            <ul class='navbar-nav' style="background-color:lightyellow; color:maroon;">
+              <li>
+        <!---------------------------------------SHARE BUTTONS--------------->        
+                <p class="m-0"><b>Share this website with friends!</b></p>
+                <!--FACEBOOK SHARE BUTTON-->
+                <!--edit the data-href inside the span element. edit the href for the anchor tag. facebook dev can automatically do this for you-->
+                  <span id='moretesting'><div class="fb-share-button" data-href="https://thedomainnameofyoursite.com" data-layout="button" data-size="large">
+                                                                                                                    <!--this part of the url needs to be edited-->
+                    <a id='testing' target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F_THE_DOMAIN_OF_YOUR_WEBSITE_%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                  </span>
+                  <!--TWITTER SHARE BUTTON-->
+                  <span class="align-middle">
+                    <!--EDIT THIS LINE. READ THOROUGHLY--><a class="twitter-share-button"href="https://twitter.com/intent/tweet?text=ADD%20_%20SOME_%20TEXT_%20INCLUDE?hashtags=ADD_SOME_HASHTAGS" data-size="large">Tweet</a>  
+                  <!--EDIT THIS LINE. READ THOROUGHLY-->  <link rel='canonical' href='https://thedomainnameofyoursite.com/'> 
+                   <!--EDIT THIS LINE. READ THOROUGHLY--> <link rel="me" href="https://twitter.com/YOUR_TWITTER_HANDLER">
+                  </span>
+               </li>
+            </ul>
+          </div>
+        </div>
+          <!--green rgb(46,139,87)  dark blue rgb(0,76,153) light teal rgb(0,204,204) minty green rgb(32,178,170)-->
+<!--------------------------------------NAVIGATION BAR SECTION --------------------------------------------------------->
+      <div class='container-fluid ml-0 mr-0 mt-0 mb-3 p-0'>
+        <nav class="navbar navbar-expand navbar-dark" style="background-color:rgb(46,139,87); border: solid 2px maroon;">
+            <a class="navbar-brand p-2" href="/index"><img src="/static/images/newlogo.png" class="img-fluid" style='width: 154px;'alt="Responsive image"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" style='color:maroon;'id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto" style='color: maroon;'>
+                {% block nav_list %}
+                <li class="nav-item active rounded" style='background-color: rgb(0,204,204); border-style: solid; border-color: maroon; border-width: 2px;'>
+                  <a class="nav-link" style="color: yellow;" href="/index">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <!--li class="nav-item">
+                    <a class="nav-link" href="/signup">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li-->
+                <li class="nav-item">
+                    <a class="nav-link" href="/products">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/events">Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                  </li>
+                {% endblock %}
+              </ul>
+              <!--div class='ml-2 align-middle'--> 
+              {% block share %}
+                {% endblock %}
+                <!--/div-->
+              
+             </div>
+          </nav>  
+      </div>
+      </div>
+      <div class = 'col m-0 p-0'>
+
+      </div>
+    </div>
+  </div>
+  
+      {% block content %}
+      <div class='row m-0 p-0'>
+        <div class ='col'>
+          
+        </div>
+        <div class ='col-8 p-0 mt-3 shadow' style="background-color: white;">
+          <img class="card-img-top" src="/static/images/themain.jpg" alt="Card image cap" style="height:250px;">
+        </div>
+        <!-------------Home page carousel----------------->
+        <div class='col-3 ml-0 mt-3 p-0' style="border: solid 2px maroon;">
+          <div class="card" style="width:100%; height:100%;">
+            <a href="/products" style="width:75%; color: maroon;"><h4 class="ml-3">Featured Products</h4></a>
+            <!--div class="d-flex justify-content-center">
+              <a href="/products"><img src="/static/images/desk.jpg" alt="Card image cap" style="height: 150px;"></a>
+            </div-->
+            <!----------Carousel Start------>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active ">
+                <div class='d-flex justify-content-center'>
+                  <a href="/products"><img src="/static/images/desk.jpg" alt="Card image cap" style="height: 150px;"></a>
+                </div>
+              </div>
+            <div class="carousel-item ">
+                <div class='d-flex justify-content-center'>
+                  <a href="/products"><img src="/static/images/mid_sommar.jpg" alt="Card image cap" style="height: 150px;"></a>
+                </div>
+             </div>
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <a href="/products"><img src="/static/images/large_plate.jpg" alt="Card image cap" style="height: 150px;"></a>
+            </div>
+             </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon rounded-circle" aria-hidden="true" style="background-color: maroon;"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon rounded-circle" aria-hidden="true" style="background-color: maroon;"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-------Carousel End--------->
+          </div>
+        </div>
+        
+        <div class ='col'>
+          
+        </div>
+      </div>
+      <div id='something' class='container-fluid m-0 p-0'>
+<!-------------------------------ABOUT ROSEMALING SECTION ------------------------------------------------------------->        
+        <div class='container-fluid ml-0 mr-0 mt-3 mb-3 p-0'>
+            <div class="row m-0">
+              <div class='col'></div>
+              <div class='col-11 justify-content-start'>
+                <h1 class='rounded m-0 p-0'style="display: inline; color:white; background-color: maroon;">HISTORY</h1>
+              </div>
+              <div class="col"></div>
+              </div>
+           
+          <div class='row'>
+            <div class='col'>
+            </div>
+            <div class='col-11 d-flex '>
+              <div class = 'row'>
+                <div class = 'col-4 m-0'>
+                  <img class='card-img-top m-0 p-0' src="/static/images/clogs.png" alt="First slide" >
+                </div>
+                <div class='col m-0' style='color:maroon; font-family: Helvetica; background-color: white; font-size: 1.2rem;'>
+                  <div class="row align-items-center">
+                    <div class='col d-flex justify-content-center align-middle'>
+                      <p class='info-paragraphs'> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    </div>
+                  </div>
+                  <div class='row align-items-center'>
+                    <div class='col d-flex justify-content-center align-middle'>
+                      <p class='info-paragraphs'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    
+                    </div>
+                  </div>
+                  <div class='row align-items-center'>
+                    <div class='col d-flex justify-content-center align-middle'>
+                      <p class='info-paragraphs'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    </div>
+                  </div>
+                  <div class='row align-items-center'>
+                    <div class='col d-flex justify-content-center align-middle'>
+                      <p class='info-paragraphs'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='col'>
+
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- ---------------------------------------------------- ABOUT ME SECTION ------------------------------------------>
+      <div class='container-fluid ml-0 mr-0 mt-3 mb-3 p-0'>
+        <div class='row'>
+          <div class='col'>
+          </div>
+          <div class='col-11 d-flex '>
+            <div class = 'row'>
+              <div class='col m-0' style='color:maroon; font-family: Helvetica; background-color: white; font-size: 1.2rem; '>
+                <div class="row align-items-center">
+                  <div class='col d-flex justify-content-center mt-4 align-middle'>
+                    <p class='info-paragraphs'> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                      sunt in culpa qui officia deserunt mollit anim id est laborum."
+                      </p>
+                  </div>
+                </div>
+                <div class='row align-items-center'>
+                  <div class='col d-flex justify-content-center align-middle'>
+                    <p class='info-paragraphs'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                      sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
+                  
+                  </div>
+                </div>
+                <div class='row align-items-center'>
+                  <div class='col d-flex justify-content-center align-middle'>
+                    <p class='info-paragraphs'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                      sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
+                  </div>
+                </div>
+                <div class='row align-items-center'>
+                  <div class='col d-flex justify-content-center align-middle'>
+                    <p class='info-paragraphs'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                      sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
+                  </div>
+                </div>
+                <div class='row align-items-center'>
+                  <div class='col d-flex justify-content-center align-middle'>
+                    <p class='info-paragraphs'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                      ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                      sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class = 'col-4 m-0'>
+                <img class='card-img-top m-0 p-0' src="/static/images/basket_birds.jpg" alt="First slide" >
+              </div>
+            </div>
+          </div>
+          <div class='col'>
+
+          </div>
+        </div>
+        
+      </div>
+
+
+
+      {% endblock %}
+      
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/popper"></script>
+    <script src="https://unpkg.com/bootstrap"></script>
+    <script src=https://unpkg.com/axios/dist/axios.js></script>
+    <script src='/static/scripts/externalApis.js'></script>
+    <!--script src='/static/scripts/fbscript.js'></script-->
+    {% block optional_scripts %}
+    {% endblock %}
+</body>
+
+</html>

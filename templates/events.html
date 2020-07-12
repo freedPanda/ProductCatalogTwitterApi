@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+<!-------USED TO DISPLAY EVENTS THAT THE WEBSITE OWNER CAN ATTEND-------
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ---->
+{% block nav_list %}
+<li class="nav-item">
+  <a class="nav-link"  href="/index">Home</a>
+</li>
+<!--li class="nav-item">
+    <a class="nav-link"  href="/signup">Sign Up</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/login">Login</a>
+</li-->
+<li class="nav-item">
+    <a class="nav-link" href="/products">Products</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/gallery">Gallery</a>
+</li>
+<li class="nav-item active rounded" style='background-color: rgb(0,204,204); border-style: solid; border-color: maroon; border-width: 1px;'>
+  <a class="nav-link" style="color: gold;" href="/events">Events <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/contact">Contact</a>
+</li>
+{% endblock %}
+{% block background_image %}
+<body class='bg-image'style="background-color:hsl(42, 46%, 93%); filter:contrast(120%);">
+{% endblock %}
+{% block content %}
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Upcoming Events</h4>
+  <p>At this time there aren't any upcoming events. Please comeback after the pandemic has passed.</p>
+  
+</div>
+{% endblock %}

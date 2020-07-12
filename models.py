@@ -1,3 +1,18 @@
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+
+db = SQLAlchemy()
+
+bcrypt = Bcrypt()
+
+
+def connect_db(app):
+    """Connect to database."""
+
+    db.app = app
+    db.init_app(app)
+
+
 class Visit(db.Model):
     __tablename__ = 'Visit'
 
@@ -9,6 +24,7 @@ class Visit(db.Model):
 class Mention(db.Model):
     __tablename__='Mention'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    #format Jul 8 2020
     date = db.Column(db.Text, nullable=False)
     tweetid = db.Column(db.Text, nullable=False)
     #when entering hashtags, should enter all as one string, seperated by commas
@@ -23,6 +39,44 @@ class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     username = db.Column(db.Text, nullable=False, unique=True)
     password = db.Column(db.Text, nullable=False, unique=False)
+
+    @classmethod
+    def register(cls, username, password):
+        """Register an admin for admin web portal access
+
+        Hashes password and adds user to system.
+        """
+
+        hashed_pwd = bcrypt.generate_password_hash(password).decode('UTF-8')
+
+        admin = Admin(
+            username=username,
+            password=hashed_pwd
+        )
+
+        db.session.add(admin)
+        return admin
+
+    @classmethod
+    def authenticate(cls, username, password):
+        """Find admin with `username` and `password`.
+
+        This is a class method (call it on the class, not an individual admin.)
+        It searches for a admin whose password hash matches this password
+        and, if it finds such a admin, returns that admin object.
+
+        If can't find matching admin (or if password is wrong), returns False.
+        """
+
+        admin = cls.query.filter_by(username=username).first()
+
+        if admin:
+            is_auth = bcrypt.check_password_hash(admin.password, password)
+            if is_auth:
+                return admin.username
+            else:
+                return False
+        return False
 
 #Products table for storing information about products
 class Product(db.Model):
