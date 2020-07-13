@@ -1,5 +1,7 @@
 # ProductCatalogTwitterApi
-Product catalog website with twitter api requests
+Product catalog website with twitter api requests. The twitter api that is involved with this incldue the following:tweet button and requesting mentions. The api is intended as a way for a webstie owner(whomever is trying to use this site to sell) to track the date when someone tweets as well as find out who mentioned. To use the twitter api you must have a twitter account. This website was designed for businesses. It features an admin portal viewing sales, adding products, deleting products, update products, track requests. This site does not have built in payment, so it uses email requests to conduct "purchases".
+
+To view, admin portal I can make a youtube video, or possible provide a temp login credentials.
 
 https://capstone-prodcatalog.herokuapp.com/index
 
