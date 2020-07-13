@@ -36,31 +36,30 @@ def register(username,password):
         
         #if editable == False:
            # return '...'
-        path = f'{os.getcwd()}/random.txt'
+        path = f'random.txt'
         admin = open(path,'w')
         admin.write(username)
         admin.write(hashed_utf8)
         admin.close()
         
 def authenticate(username, password):
-    path = f'{os.getcwd()}/random.txt'
+    path = f'random.txt'
     admin_file = open(path,'r')
     f_username = admin_file.readline()
     f_password = admin_file.readline()
+    admin_file.close()
         #return u
     if bcrypt.check_password_hash(f_password, password):
         username += '\n'
         if f_username == username:
             change_route = input('Change route, add admin, delete admin, or cancel: cr, a, d or c?')
             if change_route == 'cr':
-                path = f'{os.getcwd()}/secret.txt'
+                path = f'secret.txt'
                 route_file = open(path,'w')
                 #need to mention what not to use in route
                 new_route = input('Enter new route: ')
                 route_file.write(new_route)
                 route_file.close()
-                #last thing to do
-                admin_file.close()
             elif change_route == 'a':
                 connect_db(app)
                 #db.create_all()
@@ -73,29 +72,23 @@ def authenticate(username, password):
                     print(f'Success. username={admin.username}')
                 except IntegrityError:
                     print('Username already taken')
-                #last thing to do
-                admin_file.close()
             elif change_route == 'c':
-                #last thing to do
-                admin_file.close()
+                print('cancelled')
             elif change_route == 'd':
                 connect_db(app)
                 username = input('Username to delete: ')
                 admin = Admin.query.filter_by(username = username).first()
                 db.session.delete(admin)
                 db.session.commit()
-                admin_file.close()
             else:
-                admin_file.close()
+                print('invalid entry')
         else:
-            admin_file.close()
             print('incorrect password')
     else:
-        admin_file.close()
         print('invalid username')
 
 def get_route():
-    path = f'{os.getcwd()}/secret.txt'
+    path = f'secret.txt'
     route_file = open(path,'r')
     route = route_file.readline()
     route_file.close()
